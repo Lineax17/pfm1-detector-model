@@ -1,6 +1,6 @@
 import Albumentations as A
 
-class Transformator:
+class ImageTransformator:
     def __init__(self, image_size=(320, 320), augmentation=False):
 
         transforms = []
