@@ -1,4 +1,4 @@
-import Albumentations as A
+import albumentations as A
 
 class ImageTransformator:
     def __init__(self, image_size=(320, 320), augmentation=False):
