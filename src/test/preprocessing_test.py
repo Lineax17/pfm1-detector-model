@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 from image_transformator import ImageTransformator
 
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 def draw_bboxes(image, bboxes):
 
@@ -111,8 +112,8 @@ def preprocess_test(
 if __name__ == "__main__":
 
     preprocess_test(
-        image_path="vid-1/images/default/frame_000000.png",
-        annotation_path="vid-1/annotations/instances-default.json",
+        image_path=REPO_ROOT / "data/vid-mine-obv-1/images/default/frame_000000.png",
+        annotation_path=REPO_ROOT / "data/vid-mine-obv-1/annotations/instances-default.json",
         image_size=(320, 320),
         augmentation=False
     )
