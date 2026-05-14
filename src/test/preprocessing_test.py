@@ -1,29 +1,11 @@
-import json
 from pathlib import Path
 
-import cv2
-import matplotlib.pyplot as plt
-
 from helpers.preprocessor import Preprocessor
+from helpers.visualizer import Visualizer
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-
-def draw_bboxes(image, bboxes):
-
-    img = image.copy()
-
-    for (x, y, w, h) in bboxes:
-
-        cv2.rectangle(
-            img,
-            (int(x), int(y)),
-            (int(x + w), int(y + h)),
-            (0, 255, 0),
-            2
-        )
-
-    return img
-
+IMAGE_PATH = REPO_ROOT / "data" / "original" / "mine" / "obvious" / "vid-mine-obv-11" / "images" / "default" / "frame_000010.png"
+ANNOTATION_PATH = REPO_ROOT / "data" / "original" / "mine" / "obvious" / "vid-mine-obv-11" / "annotations" / "instances_default.json"
 
 def preprocess_test(
     image_path,
@@ -32,47 +14,11 @@ def preprocess_test(
     augmentation=False
 ):
 
-    # =========================
     # Show original
-    # =========================
+    visualizer = Visualizer()
+    visualizer.show_bbox(image_path, annotation_path, "Original")
 
-    # Load COCO annotations
-    with open(annotation_path, "r") as f:
-        coco = json.load(f)
-
-    image_filename = Path(image_path).name
-
-    image_info = next(
-        img for img in coco["images"]
-        if img["file_name"] == image_filename
-    )
-
-    image_id = image_info["id"]
-
-    annotations = [
-        ann for ann in coco["annotations"]
-        if ann["image_id"] == image_id
-    ]
-
-    # Load image and bbox
-    image = cv2.imread(str(image_path))
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-    bboxes = [ann["bbox"] for ann in annotations]
-
-    # Show original image
-    original_vis = draw_bboxes(image, bboxes)
-
-    plt.figure(figsize=(10, 10))
-    plt.title("Original")
-    plt.imshow(original_vis)
-    plt.axis("off")
-    plt.show()
-
-    # =========================
     # Apply transform
-    # =========================
-
     preprocessor = Preprocessor()
 
     transformed = preprocessor.preprocess(
@@ -85,27 +31,15 @@ def preprocess_test(
     transformed_image = transformed["image"]
     transformed_boxes = transformed["bboxes"]
 
-    # =========================
     # Show transformed
-    # =========================
-
-    transformed_vis = draw_bboxes(
-        transformed_image,
-        transformed_boxes
-    )
-
-    plt.figure(figsize=(10, 10))
-    plt.title("Transformed")
-    plt.imshow(transformed_vis)
-    plt.axis("off")
-    plt.show()
+    visualizer.show_bbox(transformed_image, transformed_boxes, "Transformed")
 
 
 if __name__ == "__main__":
 
     preprocess_test(
-        image_path=REPO_ROOT / "data" / "original" / "mine" / "obvious" / "vid-mine-obv-11" / "images" / "default" / "frame_000010.png",
-        annotation_path=REPO_ROOT / "data" / "original" / "mine" / "obvious" / "vid-mine-obv-11" / "annotations" / "instances_default.json",
+        image_path=IMAGE_PATH,
+        annotation_path=ANNOTATION_PATH,
         image_size=(320, 320),
         augmentation=False
     )
