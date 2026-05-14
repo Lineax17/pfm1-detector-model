@@ -18,14 +18,17 @@ class ImageTransformator:
             ])
 
         transforms.extend([
-            A.LongestMaxSize(max_size=max(image_size)),
+            A.LongestMaxSize(
+                max_size=max(image_size)
+            ),
+
             A.PadIfNeeded(
                 min_height=image_size[0],
                 min_width=image_size[1]
             )
         ])
 
-        self.transform = A.Compose(
+        self.transform_pipeline = A.Compose(
             transforms,
             bbox_params=A.BboxParams(
                 format='coco',
@@ -33,9 +36,8 @@ class ImageTransformator:
             )
         )
 
-    def __call__(self, image, bboxes, labels):
-
-        transformed = self.transform(
+    def transform(self, image, bboxes, labels):
+        transformed = self.transform_pipeline(
             image=image,
             bboxes=bboxes,
             labels=labels

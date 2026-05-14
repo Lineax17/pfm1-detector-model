@@ -84,7 +84,7 @@ def preprocess_test(
         augmentation=augmentation
     )
 
-    transformed = transformator(
+    transformed = transformator.transform(
         image=image,
         bboxes=bboxes,
         labels=labels
@@ -112,8 +112,8 @@ def preprocess_test(
 if __name__ == "__main__":
 
     preprocess_test(
-        image_path=REPO_ROOT / "data" / "vid-mine-obv-1" / "images" / "default" / "frame_000000.png",
-        annotation_path=REPO_ROOT / "data" / "vid-mine-obv-1" / "annotations" / "instances_default.json",
+        image_path=REPO_ROOT / "data" / "original" / "mine" / "obvious" / "vid-mine-obv-11" / "images" / "default" / "frame_000010.png",
+        annotation_path=REPO_ROOT / "data" / "original" / "mine" / "obvious" / "vid-mine-obv-11" / "annotations" / "instances_default.json",
         image_size=(320, 320),
         augmentation=False
     )
