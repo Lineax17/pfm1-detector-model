@@ -4,7 +4,7 @@ from pathlib import Path
 import cv2
 import matplotlib.pyplot as plt
 
-from helpers.image_transformator import ImageTransformator
+from helpers.preprocessor import Preprocessor
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -33,9 +33,10 @@ def preprocess_test(
 ):
 
     # =========================
-    # Load COCO annotations
+    # Show original
     # =========================
 
+    # Load COCO annotations
     with open(annotation_path, "r") as f:
         coco = json.load(f)
 
@@ -53,20 +54,13 @@ def preprocess_test(
         if ann["image_id"] == image_id
     ]
 
-    # =========================
     # Load image and bbox
-    # =========================
-
     image = cv2.imread(str(image_path))
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     bboxes = [ann["bbox"] for ann in annotations]
-    labels = [ann["category_id"] for ann in annotations]
 
-    # =========================
-    # Show original
-    # =========================
-
+    # Show original image
     original_vis = draw_bboxes(image, bboxes)
 
     plt.figure(figsize=(10, 10))
@@ -79,15 +73,13 @@ def preprocess_test(
     # Apply transform
     # =========================
 
-    transformator = ImageTransformator(
-        image_size=image_size,
-        augmentation=augmentation
-    )
+    preprocessor = Preprocessor()
 
-    transformed = transformator.transform(
-        image=image,
-        bboxes=bboxes,
-        labels=labels
+    transformed = preprocessor.preprocess(
+        image_path,
+        annotation_path,
+        image_size,
+        augmentation
     )
 
     transformed_image = transformed["image"]
