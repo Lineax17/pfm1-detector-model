@@ -9,3 +9,6 @@ ANNOTATION_PATH = REPO_ROOT / "data" / "original" / "mine" / "obvious" / "vid-mi
 def show_bbox():
     visualizer = Visualizer()
     visualizer.show_bbox(IMAGE_PATH, ANNOTATION_PATH)
+
+if __name__ == "__main__":
+    show_bbox()
