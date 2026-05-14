@@ -3,8 +3,8 @@ from pathlib import Path
 from helpers.visualizer import Visualizer
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-IMAGE_PATH = REPO_ROOT / "data" / "merged" / "train" / "images" / "vid_mine_obv_5_frame_000050.png"
-ANNOTATION_PATH = REPO_ROOT / "data" / "merged" / "train" / "annotations.json"
+IMAGE_PATH = REPO_ROOT / "data" / "processed" / "train" / "images" / "vid_mine_obv_5_frame_000050.png"
+ANNOTATION_PATH = REPO_ROOT / "data" / "processed" / "train" / "annotations.json"
 
 def show_bbox():
     visualizer = Visualizer()

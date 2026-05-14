@@ -5,6 +5,7 @@ resolvers can find `helpers.image_transformator`.
 """
 
 from .image_transformator import ImageTransformator
+from .preprocessor import Preprocessor
 
-__all__ = ["ImageTransformator"]
+__all__ = ["ImageTransformator", "Preprocessor"]
 

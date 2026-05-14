@@ -68,7 +68,7 @@ class Preprocessor:
         annotation_path = Path(annotation_path)
 
         target_images_dir = target_path / "images"
-        target_annotations_dir = target_path / "annotations"
+        target_annotations_dir = target_path
         target_images_dir.mkdir(parents=True, exist_ok=True)
         target_annotations_dir.mkdir(parents=True, exist_ok=True)
 
