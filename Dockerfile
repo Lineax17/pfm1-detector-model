@@ -30,11 +30,13 @@ if deps:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', *deps])
 PY
 
+COPY yolo11s.pt ./
 COPY src ./src
+
+RUN mkdir -p /workspace/pfm1-detector-model/models
 
 ENV PYTHONPATH=/workspace/pfm1-detector-model/src \
     TF_FORCE_GPU_ALLOW_GROWTH=true \
     TF_CPP_MIN_LOG_LEVEL=1
 
 CMD ["python", "src/training/yolo_train.py"]
-
