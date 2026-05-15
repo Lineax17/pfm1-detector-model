@@ -57,7 +57,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
         "--image-size",
         type=int,
         nargs=2,
-        default=(320, 320),
+        default=(1024, 1024),
         metavar=("WIDTH", "HEIGHT"),
         help="Target image size (width height).",
     )

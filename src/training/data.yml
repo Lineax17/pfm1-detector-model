@@ -1,0 +1,10 @@
+path: /mnt/data/Work/Repos/pfm1-detector-model/data/processed
+
+train: train/images
+val: val/images
+
+train_annotations: train/annotations.json
+val_annotations: val/annotations.json
+
+names:
+  0: pfm1
