@@ -25,6 +25,7 @@ import tomllib
 toml = tomllib.loads(Path('pyproject.toml').read_text())
 deps = [
     dep for dep in toml['project']['dependencies']
+    if not dep.lower().startswith('tensorflow')
 ]
 if deps:
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--no-cache-dir', *deps])

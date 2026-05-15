@@ -50,7 +50,7 @@ model.train(
     data=str(patched_yaml),
     epochs=200,
     imgsz=1024,
-    batch=32,
+    batch=8,
     device=0,
     project=str(RUNS_DIR),
     name="train",
