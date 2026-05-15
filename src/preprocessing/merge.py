@@ -28,11 +28,11 @@ TRAIN_FOLDERS = [
     "vid-mine-obv-29",
     "vid-mine-obv-31",
     "vid-mine-obv-32",
-    "vid-other-1"
-    "vid-other-2"
-    "vid-other-3"
-    "vid-other-6"
-    "vid-other-8"
+    "vid-other-1",
+    "vid-other-2",
+    "vid-other-3",
+    "vid-other-6",
+    "vid-other-8",
     "vid-other-9"
 ]
 
@@ -43,8 +43,8 @@ VAL_FOLDERS = [
     "vid-mine-obv-15",
     "vid-mine-obv-28",
     "vid-mine-obv-30",
-    "vid-other-4"
-    "vid-other-5"
+    "vid-other-4",
+    "vid-other-5",
     "vid-other-7"
 ]
 
