@@ -48,7 +48,7 @@ patched_yaml = _write_data_yaml(DATA_YAML, DATA_ROOT)
 
 model.train(
     data=str(patched_yaml),
-    epochs=200,
+    epochs=50,
     imgsz=1024,
     batch=8,
     device=0,
