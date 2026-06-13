@@ -28,6 +28,7 @@ TRAIN_FOLDERS = [
     "vid-mine-obv-29",
     "vid-mine-obv-31",
     "vid-mine-obv-32",
+    "vid-mine-obv-33",
     "vid-other-1",
     "vid-other-2",
     "vid-other-3",
