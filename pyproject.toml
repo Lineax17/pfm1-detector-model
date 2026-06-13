@@ -1,0 +1,10 @@
+[project]
+name = "pfm1-detector-model"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "albumentations>=2.0.8",
+    "matplotlib>=3.10.9",
+    "opencv-python>=4.13.0.92",
+    "ultralytics>=8.4.51",
+]
