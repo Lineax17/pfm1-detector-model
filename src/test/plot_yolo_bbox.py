@@ -4,9 +4,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 YOLO_ROOT = REPO_ROOT / "data" / "yolo"
 SPLIT = "train"
-# Beispielbild - anpassen nach Bedarf
-IMAGE_NAME = "vid_mine_obv_10_frame_000000.png"
-# Output für gespeicherte Visualisierung
+IMAGE_NAME = "vid_mine_obv_33_frame_000010.png"
 OUTPUT_DIR = REPO_ROOT / "src" / "test" / "yolo_output"
 
 
