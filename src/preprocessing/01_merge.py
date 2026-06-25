@@ -29,6 +29,15 @@ TRAIN_FOLDERS = [
     "vid-mine-obv-31",
     "vid-mine-obv-32",
     "vid-mine-obv-33",
+    "vid-mine-obv-34",
+    "vid-mine-obv-35",
+    "vid-mine-obv-36",
+    "vid-mine-obv-37",
+    "vid-mine-obv-38",
+    "vid-mine-obv-39",
+    "vid-mine-obv-40",
+    "vid-mine-obv-43",
+    "vid-mine-obv-44",
     "vid-other-1",
     "vid-other-2",
     "vid-other-3",
@@ -41,15 +50,18 @@ VAL_FOLDERS = [
     "vid-mine-obv-2",
     "vid-mine-obv-9",
     "vid-mine-obv-13",
-    "vid-mine-obv-15",
     "vid-mine-obv-28",
-    "vid-mine-obv-30",
     "vid-other-4",
     "vid-other-5",
-    "vid-other-7"
 ]
 
 TEST_FOLDERS = [
+    "vid-mine-obv-15",
+    "vid-mine-obv-30",
+    "vid-mine-obv-45",
+    "vid-mine-obv-46",
+    "vid-mine-obv-47",
+    "vid-other-7"
 ]
 
 
