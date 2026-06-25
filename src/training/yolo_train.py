@@ -6,7 +6,7 @@ from ultralytics import YOLO
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DATA_YAML = REPO_ROOT / "src" / "training" / "data.yml"
-DATA_ROOT = REPO_ROOT / "data" / "processed"
+DATA_ROOT = REPO_ROOT / "data" / "yolo"
 RUNS_DIR = REPO_ROOT / "runs" / "detect"
 MODELS_DIR = REPO_ROOT / "models"
 LOCAL_WEIGHTS = REPO_ROOT / "yolo11s.pt"
@@ -41,20 +41,21 @@ def _export_weights(run_dir: Path, models_dir: Path) -> None:
         shutil.copy2(last_pt, models_dir / "pfm1-yolo11s-last.pt")
 
 
-model_path = str(LOCAL_WEIGHTS) if LOCAL_WEIGHTS.exists() else "yolo11s.pt"
-model = YOLO(model_path)
+if __name__ == "__main__":
+    model_path = str(LOCAL_WEIGHTS) if LOCAL_WEIGHTS.exists() else "yolo11s.pt"
+    model = YOLO(model_path)
 
-patched_yaml = _write_data_yaml(DATA_YAML, DATA_ROOT)
+    patched_yaml = _write_data_yaml(DATA_YAML, DATA_ROOT)
 
-model.train(
-    data=str(patched_yaml),
-    epochs=50,
-    imgsz=1024,
-    batch=8,
-    device=0,
-    project=str(RUNS_DIR),
-    name="train",
-    exist_ok=True,
-)
+    model.train(
+        data=str(patched_yaml),
+        epochs=50,
+        imgsz=1024,
+        batch=8,
+        device=0,
+        project=str(RUNS_DIR),
+        name="train",
+        exist_ok=True,
+    )
 
-_export_weights(RUNS_DIR / "train", MODELS_DIR)
+    _export_weights(RUNS_DIR / "train", MODELS_DIR)

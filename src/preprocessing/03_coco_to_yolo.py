@@ -81,7 +81,7 @@ def coco_to_yolo_split(processed_root: Path, output_root: Path, split: str):
 
 
 def convert_dataset():
-    for split in ["train", "val"]:
+    for split in ["train", "val", "test"]:
         coco_to_yolo_split(PROCESSED_ROOT, YOLO_ROOT, split)
 
     print("Conversion complete!")

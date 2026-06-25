@@ -2,6 +2,7 @@ path: /mnt/data/Work/Repos/pfm1-detector-model/data/yolo
 
 train: train/images
 val: val/images
+test: test/images
 
 names:
   0: pfm1
