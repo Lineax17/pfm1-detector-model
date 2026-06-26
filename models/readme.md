@@ -1,3 +1,146 @@
 # Model Folder
 
 Make sure all your models are saved to this folder
+
+## v1
+
+
+
+## v2
+
+TRAIN_FOLDERS = [
+    "vid-mine-obv-1",
+    "vid-mine-obv-3",
+    "vid-mine-obv-4",
+    "vid-mine-obv-5",
+    "vid-mine-obv-6",
+    "vid-mine-obv-7",
+    "vid-mine-obv-8",
+    "vid-mine-obv-10",
+    "vid-mine-obv-11",
+    "vid-mine-obv-12",
+    "vid-mine-obv-14",
+    "vid-mine-obv-16",
+    "vid-mine-obv-17",
+    "vid-mine-obv-18",
+    "vid-mine-obv-19",
+    "vid-mine-obv-20",
+    "vid-mine-obv-21",
+    "vid-mine-obv-22",
+    "vid-mine-obv-23",
+    "vid-mine-obv-24",
+    "vid-mine-obv-25",
+    "vid-mine-obv-26",
+    "vid-mine-obv-27",
+    "vid-mine-obv-29",
+    "vid-mine-obv-31",
+    "vid-mine-obv-32",
+    "vid-mine-obv-33",
+    "vid-mine-obv-34",
+    "vid-mine-obv-35",
+    "vid-mine-obv-36",
+    "vid-mine-obv-37",
+    "vid-mine-obv-38",
+    "vid-mine-obv-39",
+    "vid-mine-obv-40",
+    "vid-mine-obv-43",
+    "vid-mine-obv-44",
+    "vid-other-1",
+    "vid-other-2",
+    "vid-other-3",
+    "vid-other-6",
+    "vid-other-8",
+    "vid-other-9"
+]
+
+VAL_FOLDERS = [
+    "vid-mine-obv-2",
+    "vid-mine-obv-9",
+    "vid-mine-obv-13",
+    "vid-mine-obv-28",
+    "vid-other-4",
+    "vid-other-5",
+]
+
+TEST_FOLDERS = [
+    "vid-mine-obv-15",
+    "vid-mine-obv-30",
+    "vid-mine-obv-45",
+    "vid-mine-obv-46",
+    "vid-mine-obv-47",
+    "vid-other-7"
+]
+
+## v2h
+
+TRAIN_FOLDERS = [
+    "vid-mine-obv-1",
+    "vid-mine-obv-3",
+    "vid-mine-obv-4",
+    "vid-mine-obv-5",
+    "vid-mine-obv-6",
+    "vid-mine-obv-7",
+    "vid-mine-obv-8",
+    "vid-mine-obv-10",
+    "vid-mine-obv-11",
+    "vid-mine-obv-12",
+    "vid-mine-obv-14",
+    "vid-mine-obv-16",
+    "vid-mine-obv-17",
+    "vid-mine-obv-18",
+    "vid-mine-obv-19",
+    "vid-mine-obv-20",
+    "vid-mine-obv-21",
+    "vid-mine-obv-22",
+    "vid-mine-obv-23",
+    "vid-mine-obv-24",
+    "vid-mine-obv-25",
+    "vid-mine-obv-26",
+    "vid-mine-obv-27",
+    "vid-mine-obv-29",
+    "vid-mine-obv-31",
+    "vid-mine-obv-32",
+    "vid-mine-obv-33",
+    "vid-mine-obv-34",
+    "vid-mine-obv-35",
+    "vid-mine-obv-36",
+    "vid-mine-obv-37",
+    "vid-mine-obv-38",
+    "vid-mine-obv-39",
+    "vid-mine-obv-40",
+    "vid-mine-obv-43",
+    "vid-mine-obv-44",
+    "vid-other-1",
+    "vid-other-2",
+    "vid-other-3",
+    "vid-other-6",
+    "vid-other-8",
+    "vid-other-9",
+    "vid-mine-hidden-1",
+    "vid-mine-hidden-2",
+    "vid-mine-hidden-3",
+    "vid-mine-hidden-6",
+    "vid-mine-hidden-7",
+    "vid-mine-hidden-9",
+    "vid-mine-hidden-13",
+    "vid-mine-hidden-14",
+    "vid-mine-hidden-15",
+]
+
+VAL_FOLDERS = [
+    "vid-mine-obv-2",
+    "vid-mine-obv-9",
+    "vid-mine-obv-13",
+    "vid-mine-obv-28",
+    "vid-other-4",
+    "vid-other-5",
+]
+
+TEST_FOLDERS = [
+    "vid-mine-obv-15",
+    "vid-mine-obv-30",
+    "vid-mine-obv-45",
+    "vid-mine-obv-46",
+    "vid-mine-obv-47",
+    "vid-other-7"
+]
