@@ -1,11 +1,6 @@
-"""Helpers package init.
-
-This file makes the `helpers` directory a package so IDEs and import
-resolvers can find `helpers.image_transformator`.
-"""
+"""Helpers package — reusable preprocessing, transformation, and visualisation tools."""
 
 from .image_transformator import ImageTransformator
 from .preprocessor import Preprocessor
 
 __all__ = ["ImageTransformator", "Preprocessor"]
-

@@ -1,5 +1,6 @@
-from src.helpers.coco_merger import CocoMerger
+"""Merge raw COCO sub-datasets into train / val / test splits."""
 
+from src.helpers.coco_merger import CocoMerger
 
 TRAIN_FOLDERS = [
     "vid-mine-obv-1",
@@ -43,7 +44,7 @@ TRAIN_FOLDERS = [
     "vid-other-3",
     "vid-other-6",
     "vid-other-8",
-    "vid-other-9"
+    "vid-other-9",
 ]
 
 VAL_FOLDERS = [
@@ -61,28 +62,17 @@ TEST_FOLDERS = [
     "vid-mine-obv-45",
     "vid-mine-obv-46",
     "vid-mine-obv-47",
-    "vid-other-7"
+    "vid-other-7",
 ]
 
 
 def main():
-
+    """Merge all sub-datasets into train, val, and test splits."""
     merger = CocoMerger()
 
-    merger.merge(
-        folders=TRAIN_FOLDERS,
-        output_folder="train"
-    )
-
-    merger.merge(
-        folders=VAL_FOLDERS,
-        output_folder="val"
-    )
-
-    merger.merge(
-        folders=TEST_FOLDERS,
-        output_folder="test"
-    )
+    merger.merge(folders=TRAIN_FOLDERS, output_folder="train")
+    merger.merge(folders=VAL_FOLDERS, output_folder="val")
+    merger.merge(folders=TEST_FOLDERS, output_folder="test")
 
 
 if __name__ == "__main__":

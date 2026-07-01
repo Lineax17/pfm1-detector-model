@@ -1,3 +1,5 @@
+"""Resize and pad merged COCO datasets to a uniform image size."""
+
 from __future__ import annotations
 
 import argparse
@@ -16,6 +18,19 @@ def preprocess_merged(
     image_size: tuple[int, int],
     splits: tuple[str, ...],
 ) -> None:
+    """Resize and pad every image in the given splits and write updated COCO JSON.
+
+    Parameters
+    ----------
+    merged_root : Path
+        Directory containing ``{split}/images/`` and ``{split}/annotations.json``.
+    output_root : Path
+        Directory where processed data is written.
+    image_size : tuple[int, int]
+        Target (height, width).
+    splits : tuple[str, ...]
+        Dataset splits to process (e.g. ``("train", "val")``).
+    """
     preprocessor = Preprocessor()
 
     for split in splits:
@@ -37,10 +52,10 @@ def preprocess_merged(
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
+    """Build the command-line argument parser."""
     parser = argparse.ArgumentParser(
         description="Preprocess merged COCO data into data/processed.",
     )
-
     parser.add_argument(
         "--merged-root",
         type=Path,
@@ -73,7 +88,6 @@ def build_arg_parser() -> argparse.ArgumentParser:
 def main() -> None:
     parser = build_arg_parser()
     args = parser.parse_args()
-
     preprocess_merged(
         merged_root=args.merged_root,
         output_root=args.output_root,

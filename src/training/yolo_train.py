@@ -1,3 +1,5 @@
+"""Train a YOLO model on the preprocessed PFM1 dataset."""
+
 from pathlib import Path
 import shutil
 import tempfile
@@ -13,6 +15,20 @@ LOCAL_WEIGHTS = REPO_ROOT / "yolo11s.pt"
 
 
 def _write_data_yaml(data_yaml: Path, data_root: Path) -> Path:
+    """Write a temporary copy of ``data.yml`` with an updated ``path:`` entry.
+
+    Parameters
+    ----------
+    data_yaml : Path
+        Source YAML template.
+    data_root : Path
+        New value for the ``path:`` field.
+
+    Returns
+    -------
+    Path
+        Path to the patched temporary YAML file.
+    """
     content = data_yaml.read_text(encoding="utf-8").splitlines()
     updated = []
     replaced = False
@@ -31,6 +47,7 @@ def _write_data_yaml(data_yaml: Path, data_root: Path) -> Path:
 
 
 def _export_weights(run_dir: Path, models_dir: Path) -> None:
+    """Copy best and last trained weights from the run directory to ``models_dir``."""
     weights_dir = run_dir / "weights"
     best_pt = weights_dir / "best.pt"
     last_pt = weights_dir / "last.pt"
@@ -42,7 +59,9 @@ def _export_weights(run_dir: Path, models_dir: Path) -> None:
 
 
 if __name__ == "__main__":
-    model_path = str(LOCAL_WEIGHTS) if LOCAL_WEIGHTS.exists() else "yolo11s.pt"
+    model_path = (
+        str(LOCAL_WEIGHTS) if LOCAL_WEIGHTS.exists() else "yolo11s.pt"
+    )
     model = YOLO(model_path)
 
     patched_yaml = _write_data_yaml(DATA_YAML, DATA_ROOT)
